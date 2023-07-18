@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ghostly Profiles</string>
+
+    <string name="create_user">Create User</string>
+    <string name="saved_user">Saved User</string>
+    <string name="password_generator">Password Generator</string>
+    <string name="settings">Settings</string>
 </resources>

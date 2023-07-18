@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/createUserFragment">
 
+    <fragment
+        android:id="@+id/createUserFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.generate_user.CreateUserFragment"
+        android:label="CreateUserFragment" />
+    <fragment
+        android:id="@+id/passwordGeneratorFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.generate_password.PasswordGeneratorFragment"
+        android:label="PasswordGenerateFragment" />
+    <fragment
+        android:id="@+id/savedUserFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.saved_user.SavedUserFragment"
+        android:label="SavedUserFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.setting.SettingFragment"
+        android:label="SettingFragment" />
 </navigation>

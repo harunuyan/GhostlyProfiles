@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_anonymous_user"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/savedUserFragment"
+        android:icon="@drawable/ic_save"
+        android:title="@string/saved_user" />
+    <item
+        android:id="@+id/passwordGeneratorFragment"
+        android:icon="@drawable/ic_password"
+        android:title="@string/password" />
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/settings" />
+</menu>
