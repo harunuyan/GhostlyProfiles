@@ -22,6 +22,26 @@ class CreateUserFragment : Fragment() {
         return mBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding.switchAllFields.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                mBinding.gridFields.visibility = View.GONE
+            } else {
+                mBinding.gridFields.visibility = View.VISIBLE
+            }
+        }
+
+        mBinding.switchAllNationalities.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                mBinding.gridNationalities.visibility = View.GONE
+            } else {
+                mBinding.gridNationalities.visibility = View.VISIBLE
+            }
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _mBinding = null

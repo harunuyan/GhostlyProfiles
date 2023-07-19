@@ -1,7 +1,447 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:id="@+id/fl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_color_grey"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_generate"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_save_user"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end|center"
+            android:src="@drawable/ic_save_user"
+            app:tint="@color/white" />
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_title">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/view_title"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:background="@drawable/gradient_color_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_color_grey"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/gender"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_title" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_genders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fl_genders">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/male" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <RadioButton
+                    android:id="@+id/rb_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/female" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+                <RadioButton
+                    android:id="@+id/rb_both"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/male_female" />
+
+
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:id="@+id/fl_genders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_gender">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_male" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_female" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_both_gender" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_nationality"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:background="@drawable/gradient_color_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radio_group_genders" />
+
+            <TextView
+                android:id="@+id/tv_nationality"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_color_grey"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/nationality"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_nationality" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_all_nationalities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nationality"
+                app:switchPadding="5dp" />
+
+            <GridLayout
+                android:id="@+id/grid_nationalities"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/switch_all_nationalities">
+
+                <CheckBox
+                    android:id="@+id/cb_australia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Australia" />
+
+                <CheckBox
+                    android:id="@+id/cb_brazil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brazil" />
+
+                <CheckBox
+                    android:id="@+id/cb_canada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Canada" />
+
+                <CheckBox
+                    android:id="@+id/cb_switzerland"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Switzerland" />
+
+                <CheckBox
+                    android:id="@+id/cb_germany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Germany" />
+
+                <CheckBox
+                    android:id="@+id/cb_denmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Denmark" />
+
+                <CheckBox
+                    android:id="@+id/cb_spain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spain" />
+
+                <CheckBox
+                    android:id="@+id/cb_finland"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finland" />
+
+                <CheckBox
+                    android:id="@+id/cb_france"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="France" />
+
+                <CheckBox
+                    android:id="@+id/cb_united_kingdom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="United Kingdom" />
+
+                <CheckBox
+                    android:id="@+id/cb_ireland"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ireland" />
+
+                <CheckBox
+                    android:id="@+id/cb_india"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="India" />
+
+                <CheckBox
+                    android:id="@+id/cb_iran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Iran" />
+
+                <CheckBox
+                    android:id="@+id/cb_mexico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mexico" />
+
+                <CheckBox
+                    android:id="@+id/cb_netherlands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Netherlands" />
+
+                <CheckBox
+                    android:id="@+id/cb_norway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Norway" />
+
+                <CheckBox
+                    android:id="@+id/cb_new_zealand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Zealand" />
+
+                <CheckBox
+                    android:id="@+id/cb_serbia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Serbia" />
+
+                <CheckBox
+                    android:id="@+id/cb_turkey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Turkey" />
+
+                <CheckBox
+                    android:id="@+id/cb_ukraine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ukraine" />
+
+                <CheckBox
+                    android:id="@+id/cb_united_states"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="United States" />
+
+            </GridLayout>
+
+            <View
+                android:id="@+id/view_fields"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:background="@drawable/gradient_color_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grid_nationalities" />
+
+            <TextView
+                android:id="@+id/tv_fields"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_color_grey"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/fields"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_fields" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_all_fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_fields"
+                app:switchPadding="5dp" />
+
+            <GridLayout
+                android:id="@+id/grid_fields"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/switch_all_fields">
+
+                <CheckBox
+                    android:id="@+id/cb_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id" />
+
+                <CheckBox
+                    android:id="@+id/cb_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name" />
+
+                <CheckBox
+                    android:id="@+id/cb_picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/picture" />
+
+                <CheckBox
+                    android:id="@+id/cb_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender" />
+
+                <CheckBox
+                    android:id="@+id/cb_nationality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nationality" />
+
+                <CheckBox
+                    android:id="@+id/cb_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location" />
+
+                <CheckBox
+                    android:id="@+id/cb_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email" />
+
+                <CheckBox
+                    android:id="@+id/cb_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login" />
+
+                <CheckBox
+                    android:id="@+id/cb_registered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registered" />
+
+                <CheckBox
+                    android:id="@+id/cb_date_of_birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_of_birth" />
+
+                <CheckBox
+                    android:id="@+id/cb_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone" />
+
+                <CheckBox
+                    android:id="@+id/cb_cell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cell" />
+
+            </GridLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
