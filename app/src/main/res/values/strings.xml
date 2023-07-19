@@ -33,4 +33,12 @@
     <string name="generate">Generate</string>
     <string name="password_size">Password size</string>
     <string name="save_password">Save Password</string>
+    <string name="user_details">User Details</string>
+    <string name="personal">Personal</string>
+    <string name="full_name">Fullname</string>
+    <string name="firstname">Firstname</string>
+    <string name="surname">Surname</string>
+    <string name="age">Age</string>
+    <string name="contact">Contact</string>
+    <string name="username">Username</string>
 </resources>
