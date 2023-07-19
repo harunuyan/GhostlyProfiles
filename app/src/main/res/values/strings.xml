@@ -26,4 +26,11 @@
     <string name="all">All</string>
     <string name="male_female">Male/Female</string>
     <string name="password">Password</string>
+    <string name="upper_case">Upper Case</string>
+    <string name="lower_case">Lower Case</string>
+    <string name="numeric">Numeric</string>
+    <string name="special"><![CDATA[Special (!#$%\'()*+,- ./:;<=>?@[]^_`{|}~)]]></string>
+    <string name="generate">Generate</string>
+    <string name="password_size">Password size</string>
+    <string name="save_password">Save Password</string>
 </resources>
