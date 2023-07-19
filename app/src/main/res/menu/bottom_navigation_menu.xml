@@ -6,8 +6,8 @@
         android:title="@string/home" />
     <item
         android:id="@+id/savedUserFragment"
-        android:icon="@drawable/ic_save"
-        android:title="@string/saved_user" />
+        android:icon="@drawable/ic_saved"
+        android:title="@string/saved_users" />
     <item
         android:id="@+id/passwordGeneratorFragment"
         android:icon="@drawable/ic_password"

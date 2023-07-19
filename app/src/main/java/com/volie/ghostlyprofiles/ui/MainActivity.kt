@@ -3,6 +3,7 @@ package com.volie.ghostlyprofiles.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.volie.ghostlyprofiles.R
 import com.volie.ghostlyprofiles.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+
+        mBinding.bottomNavigationView.setupWithNavController(navController)
     }
 
     override fun onDestroy() {
