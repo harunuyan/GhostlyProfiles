@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/createUserFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/createUserFragment"
@@ -20,4 +20,12 @@
         android:id="@+id/settingFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.setting.SettingFragment"
         android:label="SettingFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.user_detail.UserDetailsFragment"
+        android:label="UserDetailsFragment" />
 </navigation>
