@@ -19,6 +19,12 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    fun providesLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.BODY }
+    }
+
+    @Singleton
+    @Provides
     fun provideOkHttpClient(okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(timeout = 15, unit = TimeUnit.SECONDS)
