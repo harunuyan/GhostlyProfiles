@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.volie.ghostlyprofiles.databinding.FragmentFilteredUserBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -12,6 +13,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class FilteredUserFragment : Fragment() {
     private var _mBinding: FragmentFilteredUserBinding? = null
     private val mBinding get() = _mBinding!!
+    private val mViewModel: FilteredUserViewModel by viewModels()
+    private val mAdapter: FilteredUserRVAdapter by lazy {
+        FilteredUserRVAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +25,12 @@ class FilteredUserFragment : Fragment() {
     ): View {
         _mBinding = FragmentFilteredUserBinding.inflate(inflater, container, false)
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding.rvFilteredUsers.adapter = mAdapter
     }
 
     override fun onDestroy() {
