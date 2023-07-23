@@ -20,6 +20,10 @@ abstract class BaseRVAdapter<T>(
         bindViewHolder(holder, item, position)
     }
 
+    override fun getItem(position: Int): T {
+        return currentList[position]
+    }
+
     protected abstract fun createViewHolder(
         parent: ViewGroup,
         inflater: LayoutInflater,
