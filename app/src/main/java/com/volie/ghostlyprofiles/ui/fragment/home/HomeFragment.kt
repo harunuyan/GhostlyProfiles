@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.volie.ghostlyprofiles.R
 import com.volie.ghostlyprofiles.databinding.FragmentHomeBinding
 import com.volie.ghostlyprofiles.util.Status
@@ -16,8 +17,11 @@ class HomeFragment : Fragment() {
     private var _mBinding: FragmentHomeBinding? = null
     private val mBinding get() = _mBinding!!
     private val mViewModel: HomeViewModel by viewModels()
-    private val mAdapter: HomeRVAdapter by lazy {
-        HomeRVAdapter()
+    private val mFeedAdapter: HomeRVAdapter by lazy {
+        HomeRVAdapter {
+            val action = HomeFragmentDirections.actionHomeFragmentToUserDetailsFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateView(
@@ -32,16 +36,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.rvFeed.adapter = mAdapter
-        mViewModel.getRandomUsers()
+        mBinding.ivFilter.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToCreateUserFragment()
+            findNavController().navigate(action)
+        }
+
+        mBinding.rvFeed.adapter = mFeedAdapter
         observeLiveData()
         pullToRefresh()
+
+        mViewModel.getRandomUsers(nat = "", gender = "")
     }
 
     private fun pullToRefresh() {
         mBinding.swipeRefresh.setOnRefreshListener {
             mBinding.swipeRefresh.isRefreshing = false
-            mViewModel.getRandomUsers()
+            mViewModel.getRandomUsers(nat = "", gender = "")
         }
     }
 
@@ -53,7 +63,7 @@ class HomeFragment : Fragment() {
                     mBinding.rvFeed.visibility = View.VISIBLE
                     mBinding.tvTitle.text = getString(R.string.users)
                     resource.data?.let {
-                        mAdapter.submitList(it.results)
+                        mFeedAdapter.submitList(it.results)
                     }
                 }
 

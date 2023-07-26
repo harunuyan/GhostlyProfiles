@@ -15,7 +15,10 @@
     <fragment
         android:id="@+id/passwordGeneratorFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.generate_password.PasswordGeneratorFragment"
-        android:label="PasswordGenerateFragment" />
+        android:label="PasswordGenerateFragment"
+
+
+        />
     <fragment
         android:id="@+id/savedUserFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.saved_user.SavedUserFragment"
@@ -31,12 +34,27 @@
         <action
             android:id="@+id/action_homeFragment_to_createUserFragment"
             app:destination="@id/createUserFragment" />
-        <argument
-            android:name="nat"
-            app:argType="com.volie.ghostlyprofiles.data.model.Country" />
+        <action
+            android:id="@+id/action_homeFragment_to_chooseFieldFragment"
+            app:destination="@id/chooseFieldFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/userDetailsFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.user_detail.UserDetailsFragment"
-        android:label="UserDetailsFragment" />
+        android:label="UserDetailsFragment">
+        <argument
+            android:name="user"
+            app:argType="com.volie.ghostlyprofiles.data.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFieldFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.field.ChooseFieldFragment"
+        android:label="ChooseFieldFragment">
+        <action
+            android:id="@+id/action_chooseFieldFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
