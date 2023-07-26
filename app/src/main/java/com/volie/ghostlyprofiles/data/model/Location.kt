@@ -1,5 +1,9 @@
 package com.volie.ghostlyprofiles.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Location(
     val city: String,
     val coordinates: Coordinates,
@@ -8,4 +12,4 @@ data class Location(
     val state: String,
     val street: Street,
     val timezone: Timezone
-)
+) : Parcelable

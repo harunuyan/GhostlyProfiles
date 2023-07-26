@@ -1,5 +1,9 @@
 package com.volie.ghostlyprofiles.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User(
     val cell: String,
     val dob: Dob,
@@ -12,4 +16,4 @@ data class User(
     val phone: String,
     val picture: Picture,
     val registered: Registered
-)
+) : Parcelable

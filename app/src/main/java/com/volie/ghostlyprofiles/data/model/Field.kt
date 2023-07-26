@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Field(
-    val fieldName: String? = "",
+    val fieldName: String,
     var isSelected: Boolean = false
 ) : Parcelable
