@@ -48,4 +48,5 @@
     <string name="latitude_longitude">Latitude / Longitude</string>
     <string name="time_zone">Time Zone</string>
     <string name="please_check_your_internet_connection">Please check your internet connection.</string>
+    <string name="choose_fields">Choose Fields</string>
 </resources>
