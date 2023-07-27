@@ -9,7 +9,7 @@
         android:id="@+id/fl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_color_grey"
+        android:background="@drawable/gradient_color_green"
         android:padding="12dp">
 
         <ImageView
@@ -39,27 +39,17 @@
 
     </FrameLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/gradient_color_blue" />
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_user_picture"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_gravity="center"
-        app:strokeWidth="2dp"
+        app:strokeWidth="4dp"
         app:strokeColor="@color/brown"
         android:layout_marginTop="12dp"
         android:src="@color/blue"
         app:shapeAppearanceOverlay="@style/CircularImageView" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/gradient_color_blue" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout_details"

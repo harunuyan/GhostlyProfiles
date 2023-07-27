@@ -10,4 +10,6 @@
     <color name="light_brown">#edc4b3</color>
     <color name="green">#132a13</color>
     <color name="light_green">#4f772d</color>
+    <color name="seashell">#fff5ee</color>
+    <color name="beige">#f5f5dc</color>
 </resources>

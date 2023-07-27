@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -42,10 +43,18 @@ class UserDetailsFragment : Fragment() {
 
         mBinding.ivBack.setOnClickListener { findNavController().navigateUp() }
 
+
         setupViewPager()
     }
 
     private fun setupViewPager() {
+
+        val tabIcons = listOf(
+            R.drawable.ic_person,
+            R.drawable.ic_phone,
+            R.drawable.ic_location_marker,
+            R.drawable.ic_password_tab
+        )
 
         with(pages) {
             with(mArgs.user) {
@@ -63,14 +72,10 @@ class UserDetailsFragment : Fragment() {
             mBinding.tabLayoutDetails,
             mBinding.viewPagerDetails
         ) { tab, position ->
-            when (position) {
-                0 -> tab.text = getString(R.string.personal)
-                1 -> tab.text = getString(R.string.contact)
-                2 -> tab.text = getString(R.string.location)
-                3 -> tab.text = getString(R.string.login)
-            }
+            tab.icon = ContextCompat.getDrawable(requireContext(), tabIcons[position])
         }.attach()
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
