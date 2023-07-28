@@ -32,6 +32,7 @@ class SavedUserFragment : Fragment() {
                     mViewModel.deleteUser(user)
                 }
                 mAdapter.notifyItemChanged(position)
+                observeLiveData()
                 mViewModel.getSavedUsers()
             }
         )
@@ -56,6 +57,13 @@ class SavedUserFragment : Fragment() {
 
     private fun observeLiveData() {
         mViewModel.savedUsers.observe(viewLifecycleOwner) {
+            if (mViewModel.savedUsers.value.isNullOrEmpty()) {
+                mBinding.rvSavedUsers.visibility = View.GONE
+                mBinding.ivEmptyStorage.visibility = View.VISIBLE
+            } else {
+                mBinding.rvSavedUsers.visibility = View.VISIBLE
+                mBinding.ivEmptyStorage.visibility = View.GONE
+            }
             mAdapter.submitList(it)
         }
     }

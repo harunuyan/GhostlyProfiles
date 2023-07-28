@@ -19,6 +19,7 @@ class HomeViewModel
     private val repository: Repository
 ) : ViewModel() {
 
+    var dataFetched = false
     private val _users = MutableLiveData<Resource<RandomUserResponse>>()
     val users: LiveData<Resource<RandomUserResponse>> = _users
 
@@ -26,6 +27,17 @@ class HomeViewModel
     val filteredUsers: LiveData<Resource<RandomUserResponse>> = _filteredUsers
 
     fun getRandomUsers(nat: String, gender: String) {
+        _users.postValue(Resource.loading(null))
+        viewModelScope.launch(Dispatchers.IO) {
+            if (!dataFetched) {
+                val result = repository.getRandomUsersFromRemote(nat = nat, gender = gender)
+                _users.postValue(result)
+                dataFetched = true
+            }
+        }
+    }
+
+    fun getRandomUsersWithPullToRefresh(nat: String, gender: String) {
         _users.postValue(Resource.loading(null))
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getRandomUsersFromRemote(nat = nat, gender = gender)
