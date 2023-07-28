@@ -18,10 +18,22 @@ class HomeFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mViewModel: HomeViewModel by viewModels()
     private val mFeedAdapter: HomeRVAdapter by lazy {
-        HomeRVAdapter {
-            val action = HomeFragmentDirections.actionHomeFragmentToUserDetailsFragment(it)
-            findNavController().navigate(action)
-        }
+        HomeRVAdapter(
+            onItemClick = {
+                val action = HomeFragmentDirections.actionHomeFragmentToUserDetailsFragment(it)
+                findNavController().navigate(action)
+            },
+            onFavClick = { user, position ->
+                if (!user.isLiked) {
+                    user.isLiked = true
+                    mViewModel.insertUser(user)
+                } else {
+                    user.isLiked = false
+                    mViewModel.deleteUser(user)
+                }
+                mFeedAdapter.notifyItemChanged(position)
+            }
+        )
     }
 
     override fun onCreateView(
@@ -38,6 +50,11 @@ class HomeFragment : Fragment() {
 
         mBinding.ivFilter.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToCreateUserFragment()
+            findNavController().navigate(action)
+        }
+
+        mBinding.ivFields.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToChooseFieldFragment()
             findNavController().navigate(action)
         }
 

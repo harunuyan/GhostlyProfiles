@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -25,6 +26,7 @@ class UserDetailsFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val pages = ArrayList<Fragment>()
     private val mArgs: UserDetailsFragmentArgs by navArgs()
+    private val mViewModel: UserDetailsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,13 +40,36 @@ class UserDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.tvUserTitle.text = "${mArgs.user.name.title} ${mArgs.user.name.last}"
-        mBinding.ivUserPicture.load(mArgs.user.picture.large)
-
         mBinding.ivBack.setOnClickListener { findNavController().navigateUp() }
+
+        mBinding.ivLike.setOnClickListener {
+            if (!mArgs.user.isLiked) {
+                mArgs.user.isLiked = true
+                mBinding.ivLike.setImageResource(R.drawable.ic_liked)
+            } else {
+                mArgs.user.isLiked = false
+                mBinding.ivLike.setImageResource(R.drawable.ic_like)
+            }
+        }
 
 
         setupViewPager()
+        getUserDetails()
+    }
+
+    private fun getUserDetails() {
+        with(mBinding) {
+            tvUserTitle.text = "${mArgs.user.name.title} ${mArgs.user.name.last}"
+            ivUserPicture.load(mArgs.user.picture.large)
+
+            if (mArgs.user.isLiked) {
+                ivLike.setImageResource(R.drawable.ic_liked)
+                mViewModel.insertUser(mArgs.user)
+            } else {
+                ivLike.setImageResource(R.drawable.ic_like)
+                mViewModel.deleteUser(mArgs.user)
+            }
+        }
     }
 
     private fun setupViewPager() {

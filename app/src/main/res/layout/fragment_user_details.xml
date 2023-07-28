@@ -30,7 +30,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/iv_more"
+            android:id="@+id/iv_like"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="end|center"

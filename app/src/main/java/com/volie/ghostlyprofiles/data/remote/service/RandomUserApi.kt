@@ -10,6 +10,16 @@ interface RandomUserApi {
     @GET("api/")
     suspend fun getRandomUsers(
         @Query("results")
-        results: Int? = 80
+        results: Int? = 80,
+        @Query("nat")
+        nat: String = "",
+        @Query("gender")
+        gender: String? = ""
+    ): Response<RandomUserResponse>
+
+    @GET("api/")
+    suspend fun getAccordingToIncludeField(
+        @Query("inc")
+        fields: String
     ): Response<RandomUserResponse>
 }

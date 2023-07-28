@@ -22,7 +22,11 @@
     <fragment
         android:id="@+id/savedUserFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.saved_user.SavedUserFragment"
-        android:label="SavedUserFragment" />
+        android:label="SavedUserFragment">
+        <action
+            android:id="@+id/action_savedUserFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.setting.SettingFragment"
