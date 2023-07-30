@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.volie.ghostlyprofiles.R
 import com.volie.ghostlyprofiles.data.model.Country
-import com.volie.ghostlyprofiles.data.model.Field
 import com.volie.ghostlyprofiles.databinding.FragmentCreateUserBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CreateUserFragment : Fragment() {
     private var _mBinding: FragmentCreateUserBinding? = null
     private val mBinding get() = _mBinding!!
-    private val mCountryAdapter: CheckboxCountryRVAdapter by lazy {
+    private val mAdapter: CheckboxCountryRVAdapter by lazy {
         CheckboxCountryRVAdapter(countryList) { selectedCountry ->
             if (selectedCountry.isSelected) {
                 selectedCountries.add(selectedCountry)
@@ -24,21 +23,9 @@ class CreateUserFragment : Fragment() {
             }
         }
     }
-    private val mFieldAdapter: CheckboxFieldRVAdapter by lazy {
-        CheckboxFieldRVAdapter(fieldList) { selectedField ->
-            if (selectedField.isSelected) {
-                selectedFields.add(selectedField)
-            } else {
-                selectedFields.remove(selectedField)
-            }
-
-        }
-    }
-    private val selectedFields = ArrayList<Field>()
     private var selectedGender = ""
     private var selectedCountries = ArrayList<Country>()
     private val countryList = ArrayList<Country>()
-    private val fieldList = ArrayList<Field>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,11 +39,9 @@ class CreateUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.rvNationalities.adapter = mCountryAdapter
-        mBinding.rvFields.adapter = mFieldAdapter
+        mBinding.rvNationalities.adapter = mAdapter
 
         addCountriesToList()
-        addFieldsToList()
 
         mBinding.radioGroupGenders.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -70,23 +55,16 @@ class CreateUserFragment : Fragment() {
                     selectedGender = "female"
                 }
 
-                R.id.rb_female -> selectedGender = ""
+                R.id.rb_both -> selectedGender = ""
             }
         }
 
-        mBinding.switchAllFields.setOnCheckedChangeListener { buttonView, isChecked ->
+        mBinding.switchAllNationalities.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mBinding.gridFields.visibility = View.GONE
+                mBinding.rvNationalities.visibility = View.GONE
+                selectedCountries.add(Country(name = "", countryCode = ""))
             } else {
-                mBinding.gridFields.visibility = View.VISIBLE
-            }
-        }
-
-        mBinding.switchAllNationalities.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                mBinding.gridNationalities.visibility = View.GONE
-            } else {
-                mBinding.gridNationalities.visibility = View.VISIBLE
+                mBinding.rvNationalities.visibility = View.VISIBLE
             }
         }
     }
@@ -113,23 +91,6 @@ class CreateUserFragment : Fragment() {
             add(Country(name = "Serbia", countryCode = "RS"))
             add(Country(name = "Turkey", countryCode = "TR"))
             add(Country(name = "Ukraine", countryCode = "UA"))
-        }
-    }
-
-    private fun addFieldsToList() {
-        with(fieldList) {
-            add(Field(fieldName = "gender"))
-            add(Field(fieldName = "name"))
-            add(Field(fieldName = "location"))
-            add(Field(fieldName = "email"))
-            add(Field(fieldName = "login"))
-            add(Field(fieldName = "registered"))
-            add(Field(fieldName = "dob"))
-            add(Field(fieldName = "phone"))
-            add(Field(fieldName = "cell"))
-            add(Field(fieldName = "id"))
-            add(Field(fieldName = "picture"))
-            add(Field(fieldName = "nat"))
         }
     }
 

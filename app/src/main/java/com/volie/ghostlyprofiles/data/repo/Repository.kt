@@ -52,4 +52,6 @@ class Repository
     suspend fun insertUser(user: User) = dao.insertUser(user)
 
     suspend fun deleteUser(user: User) = dao.deleteUser(user)
+
+    suspend fun deleteAllUsers() = dao.deleteAllUsers()
 }

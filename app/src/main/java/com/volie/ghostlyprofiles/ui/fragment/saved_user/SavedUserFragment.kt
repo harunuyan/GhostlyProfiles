@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.ghostlyprofiles.databinding.FragmentSavedUserBinding
 import com.volie.ghostlyprofiles.ui.fragment.home.HomeRVAdapter
+import com.volie.ghostlyprofiles.util.AlertDialogUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,6 +50,18 @@ class SavedUserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        mBinding.ivDeleteAll.setOnClickListener {
+            AlertDialogUtil.showAlertDialog(
+                requireContext(),
+                "Delete all users",
+                "Are you sure you want to delete all saved users?"
+            ) {
+                mViewModel.deleteAllUsers()
+                observeLiveData()
+                mViewModel.getSavedUsers()
+            }
+        }
 
         mBinding.rvSavedUsers.adapter = mAdapter
         observeLiveData()

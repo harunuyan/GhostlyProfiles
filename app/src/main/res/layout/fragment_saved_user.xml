@@ -21,11 +21,11 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/iv_more"
+            android:id="@+id/iv_delete_all"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="end|center"
-            android:src="@drawable/ic_more"
+            android:src="@drawable/ic_delete"
             app:tint="@color/white" />
 
     </FrameLayout>

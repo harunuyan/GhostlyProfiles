@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.volie.ghostlyprofiles.data.model.User
 import com.volie.ghostlyprofiles.databinding.FragmentPersonelDataBinding
+import com.volie.ghostlyprofiles.util.DateManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PersonalDataPageFragment(private val personal: User) : Fragment() {
     private var _mBinding: FragmentPersonelDataBinding? = null
     private val mBinding get() = _mBinding!!
+    private val dateFormat = DateManager()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +33,7 @@ class PersonalDataPageFragment(private val personal: User) : Fragment() {
             tvName.text = personal.name.first
             tvSurname.text = personal.name.last
             tvAge.text = personal.dob.age.toString()
-            tvDob.text = personal.dob.date
+            tvDob.text = dateFormat.formatDate(personal.dob.date)
             tvGender.text = personal.gender
             tvNationality.text = personal.nat
         }

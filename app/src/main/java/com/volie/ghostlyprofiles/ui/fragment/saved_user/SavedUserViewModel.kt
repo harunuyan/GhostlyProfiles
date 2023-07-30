@@ -25,6 +25,12 @@ class SavedUserViewModel
         }
     }
 
+    fun deleteAllUsers() {
+        viewModelScope.launch {
+            repository.deleteAllUsers()
+        }
+    }
+
     fun insertUser(user: User) {
         viewModelScope.launch {
             repository.insertUser(user)

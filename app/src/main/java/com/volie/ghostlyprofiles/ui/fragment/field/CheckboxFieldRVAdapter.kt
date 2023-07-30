@@ -1,4 +1,4 @@
-package com.volie.ghostlyprofiles.ui.fragment.generate_user
+package com.volie.ghostlyprofiles.ui.fragment.field
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
