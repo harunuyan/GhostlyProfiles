@@ -18,8 +18,8 @@ interface RandomUserApi {
     ): Response<RandomUserResponse>
 
     @GET("api/")
-    suspend fun getAccordingToIncludeField(
-        @Query("inc")
-        fields: String
+    suspend fun generatePassword(
+        @Query("password")
+        passwordOptions: String
     ): Response<RandomUserResponse>
 }

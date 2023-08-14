@@ -30,23 +30,23 @@ class Repository
         }
     }
 
-    suspend fun getSavedUsersFromDatabase(): List<User> {
-        return dao.getSavedUsers()
-    }
-
-    suspend fun getAccordingToIncludeField(fields: String): Resource<RandomUserResponse> {
+    suspend fun generatePassword(passwordOptions: String): Resource<RandomUserResponse> {
         return try {
-            val response = service.getAccordingToIncludeField(fields = fields)
+            val response = service.generatePassword(passwordOptions)
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)
-                } ?: Resource.error("Error fields*1", null)
+                } ?: Resource.error("Error*1", null)
             } else {
-                Resource.error("Error fields*2", null)
+                Resource.error("Error*2", null)
             }
         } catch (e: Exception) {
             Resource.error("$e", null)
         }
+    }
+
+    suspend fun getSavedUsersFromDatabase(): List<User> {
+        return dao.getSavedUsers()
     }
 
     suspend fun insertUser(user: User) = dao.insertUser(user)

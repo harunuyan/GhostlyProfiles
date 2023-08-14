@@ -46,9 +46,11 @@ class UserDetailsFragment : Fragment() {
             if (!mArgs.user.isLiked) {
                 mArgs.user.isLiked = true
                 mBinding.ivLike.setImageResource(R.drawable.ic_liked)
+                mViewModel.insertUser(mArgs.user)
             } else {
                 mArgs.user.isLiked = false
                 mBinding.ivLike.setImageResource(R.drawable.ic_like)
+                mViewModel.deleteUser(mArgs.user)
             }
         }
 
@@ -64,10 +66,9 @@ class UserDetailsFragment : Fragment() {
 
             if (mArgs.user.isLiked) {
                 ivLike.setImageResource(R.drawable.ic_liked)
-                mViewModel.insertUser(mArgs.user)
+
             } else {
                 ivLike.setImageResource(R.drawable.ic_like)
-                mViewModel.deleteUser(mArgs.user)
             }
         }
     }

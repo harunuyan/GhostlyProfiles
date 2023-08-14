@@ -12,8 +12,4 @@
         android:id="@+id/passwordGeneratorFragment"
         android:icon="@drawable/ic_password"
         android:title="@string/password" />
-    <item
-        android:id="@+id/settingFragment"
-        android:icon="@drawable/ic_setting"
-        android:title="@string/settings" />
 </menu>

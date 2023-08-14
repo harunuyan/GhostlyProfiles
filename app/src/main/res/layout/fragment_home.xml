@@ -7,17 +7,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/background_wold_map"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_color_blue"
+            android:background="@drawable/gradient_background_bottom"
             android:gravity="end"
             android:orientation="horizontal"
             android:padding="12dp">
-
 
             <TextView
                 android:id="@+id/tv_title"
@@ -35,19 +35,17 @@
                 android:layout_weight="1" />
 
             <ImageView
-                android:id="@+id/iv_fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_check" />
-
-            <ImageView
                 android:id="@+id/iv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_filter" />
+                android:src="@drawable/ic_check" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

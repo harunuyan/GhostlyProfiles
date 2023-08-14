@@ -53,11 +53,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        mBinding.ivFields.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToChooseFieldFragment()
-            findNavController().navigate(action)
-        }
-
         mBinding.rvFeed.adapter = mFeedAdapter
         observeLiveData()
         pullToRefresh()

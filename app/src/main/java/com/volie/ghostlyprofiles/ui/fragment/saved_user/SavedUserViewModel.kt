@@ -15,8 +15,8 @@ class SavedUserViewModel
     private val repository: Repository
 ) : ViewModel() {
 
-    private val _savedUsers = MutableLiveData<List<User>>()
-    val savedUsers: MutableLiveData<List<User>> = _savedUsers
+    private val _savedUsers = MutableLiveData<List<User>?>()
+    val savedUsers: MutableLiveData<List<User>?> = _savedUsers
 
     fun getSavedUsers() {
         viewModelScope.launch {
@@ -28,6 +28,7 @@ class SavedUserViewModel
     fun deleteAllUsers() {
         viewModelScope.launch {
             repository.deleteAllUsers()
+            _savedUsers.postValue(emptyList())
         }
     }
 

@@ -31,7 +31,7 @@
     <string name="numeric">Numeric</string>
     <string name="special"><![CDATA[Special (!#$%\'()*+,- ./:;<=>?@[]^_`{|}~)]]></string>
     <string name="generate">Generate</string>
-    <string name="password_size">Password size</string>
+    <string name="password_length">Password length</string>
     <string name="save_password">Save Password</string>
     <string name="user_details">User Details</string>
     <string name="personal">Personal</string>
@@ -49,4 +49,6 @@
     <string name="time_zone">Time Zone</string>
     <string name="please_check_your_internet_connection">Please check your internet connection.</string>
     <string name="choose_fields">Choose Fields</string>
+    <string name="regenerate_password">Regenerate Password</string>
+    <string name="my_password">My password</string>
 </resources>

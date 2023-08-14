@@ -45,14 +45,6 @@ class HomeViewModel
         }
     }
 
-    fun getAccordingToIncludeField(fields: String) {
-        _filteredUsers.postValue(Resource.loading(null))
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getAccordingToIncludeField(fields = fields)
-            _filteredUsers.postValue(result)
-        }
-    }
-
     fun insertUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertUser(user)

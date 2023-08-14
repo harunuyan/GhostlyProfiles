@@ -3,30 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_wold_map"
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/fl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_color_grey"
+        android:background="@drawable/gradient_background_bottom"
         android:padding="12dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/saved_users"
             android:textColor="@color/white"
+            android:layout_gravity="start|center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_delete_all"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="end|center"
-            android:src="@drawable/ic_delete"
-            app:tint="@color/white" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_delete" />
 
     </FrameLayout>
 
@@ -35,14 +36,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <ImageView
         android:id="@+id/iv_empty_storage"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:layout_gravity="center"
-        android:src="@drawable/ic_storage" />
+        android:src="@drawable/ic_storage"
+        android:visibility="visible" />
 
 </LinearLayout>

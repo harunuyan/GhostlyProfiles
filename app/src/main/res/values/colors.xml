@@ -2,8 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#4A55A2</color>
-    <color name="light_blue">#C5DFF8</color>
+    <color name="blue">#041223</color>
+    <color name="light_blue">#0A3D80</color>
     <color name="grey">#454545</color>
     <color name="light_grey">#B7B7B7</color>
     <color name="brown">#8a5a44</color>
@@ -12,4 +12,6 @@
     <color name="light_green">#4f772d</color>
     <color name="seashell">#fff5ee</color>
     <color name="beige">#f5f5dc</color>
+    <color name="colorPurple">#800080</color>
+    <color name="colorOrange">#FFA500</color>
 </resources>

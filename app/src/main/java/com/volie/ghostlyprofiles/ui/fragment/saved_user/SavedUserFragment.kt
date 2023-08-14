@@ -51,6 +51,8 @@ class SavedUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBinding.rvSavedUsers.adapter = mAdapter
+
         mBinding.ivDeleteAll.setOnClickListener {
             AlertDialogUtil.showAlertDialog(
                 requireContext(),
@@ -58,12 +60,9 @@ class SavedUserFragment : Fragment() {
                 "Are you sure you want to delete all saved users?"
             ) {
                 mViewModel.deleteAllUsers()
-                observeLiveData()
-                mViewModel.getSavedUsers()
             }
         }
 
-        mBinding.rvSavedUsers.adapter = mAdapter
         observeLiveData()
         mViewModel.getSavedUsers()
     }
@@ -71,11 +70,11 @@ class SavedUserFragment : Fragment() {
     private fun observeLiveData() {
         mViewModel.savedUsers.observe(viewLifecycleOwner) {
             if (mViewModel.savedUsers.value.isNullOrEmpty()) {
-                mBinding.rvSavedUsers.visibility = View.GONE
                 mBinding.ivEmptyStorage.visibility = View.VISIBLE
+                mBinding.rvSavedUsers.visibility = View.GONE
             } else {
-                mBinding.rvSavedUsers.visibility = View.VISIBLE
                 mBinding.ivEmptyStorage.visibility = View.GONE
+                mBinding.rvSavedUsers.visibility = View.VISIBLE
             }
             mAdapter.submitList(it)
         }

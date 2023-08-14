@@ -8,6 +8,8 @@
         android:id="@+id/iv_picture_item"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white"
         android:layout_margin="12dp"
         android:src="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,9 +20,9 @@
         android:id="@+id/tv_name_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="14dp"
         android:text="Arnold Civardagezer"
-        android:textColor="@color/brown"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/iv_picture_item"
@@ -42,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="Arnold@gmail.com"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_mail_icon"
         app:layout_constraintStart_toEndOf="@id/iv_mail_icon"
@@ -63,14 +66,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:textColor="@color/white"
         android:text="03-656-6945"
         app:layout_constraintBottom_toBottomOf="@id/iv_phone_icon"
         app:layout_constraintStart_toEndOf="@id/iv_phone_icon"
         app:layout_constraintTop_toTopOf="@id/iv_phone_icon" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_flag_item"
         android:layout_width="34dp"
+        app:strokeColor="#40FFFFFF"
+        app:strokeWidth="2dp"
         android:layout_height="24dp"
         android:layout_margin="12dp"
         android:src="@color/brown"
@@ -85,14 +91,15 @@
         android:src="@drawable/ic_like"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/iv_flag_item"
-        app:layout_constraintStart_toStartOf="@id/iv_flag_item"
-        app:tint="@color/grey" />
+        app:layout_constraintStart_toStartOf="@id/iv_flag_item" />
 
-    <Space
+    <View
         android:layout_width="0dp"
-        android:layout_height="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_picture_item" />
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_color_brown"
+        app:layout_constraintStart_toStartOf="@id/iv_picture_item"
+        app:layout_constraintEnd_toEndOf="@id/iv_flag_item"
+        app:layout_constraintTop_toBottomOf="@id/iv_picture_item"
+        android:layout_marginTop="12dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
