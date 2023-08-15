@@ -33,7 +33,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/brown" />
+            android:background="@color/light_green" />
 
 
         <TextView
@@ -60,7 +60,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/brown" />
+            android:background="@color/light_green" />
 
         <TextView
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/brown" />
+            android:background="@color/light_green" />
 
         <TextView
             android:layout_width="match_parent"

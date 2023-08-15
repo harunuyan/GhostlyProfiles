@@ -8,8 +8,8 @@
         android:id="@+id/iv_picture_item"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        app:strokeWidth="2dp"
-        app:strokeColor="@color/white"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/light_green"
         android:layout_margin="12dp"
         android:src="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_flag_item"
         android:layout_width="34dp"
-        app:strokeColor="#40FFFFFF"
+        app:strokeColor="#59FFFFFF"
         app:strokeWidth="2dp"
         android:layout_height="24dp"
         android:layout_margin="12dp"
@@ -96,7 +96,7 @@
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="@drawable/gradient_color_brown"
+        android:background="@color/light_green"
         app:layout_constraintStart_toStartOf="@id/iv_picture_item"
         app:layout_constraintEnd_toEndOf="@id/iv_flag_item"
         app:layout_constraintTop_toBottomOf="@id/iv_picture_item"

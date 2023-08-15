@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/saved_users"
-            android:textColor="@color/white"
+            android:textColor="@color/light_brown"
             android:layout_gravity="start|center"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -27,7 +27,8 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="end"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            app:tint="@color/light_brown" />
 
     </FrameLayout>
 
@@ -45,6 +46,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:src="@drawable/ic_storage"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
 </LinearLayout>

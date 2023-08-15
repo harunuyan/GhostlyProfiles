@@ -60,8 +60,8 @@ class SavedPasswordFragment : Fragment() {
                     val position = viewHolder.adapterPosition
                     val password = mAdapter.currentList[position]
                     mViewModel.deletePassword(password)
-                    observeLiveData()
                     mViewModel.getSavedPasswords()
+                    observeLiveData()
                 }
             }
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
@@ -70,6 +70,11 @@ class SavedPasswordFragment : Fragment() {
 
     private fun observeLiveData() {
         mViewModel.savedPassword.observe(viewLifecycleOwner) {
+            if (mViewModel.savedPassword.value.isNullOrEmpty()) {
+                mBinding.ivEmptyStorage.visibility = View.VISIBLE
+            } else {
+                mBinding.ivEmptyStorage.visibility = View.GONE
+            }
             mAdapter.submitList(it)
         }
     }
