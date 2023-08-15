@@ -51,4 +51,6 @@
     <string name="choose_fields">Choose Fields</string>
     <string name="regenerate_password">Regenerate Password</string>
     <string name="my_password">My password</string>
+    <string name="saved_passwords">Saved Passwords</string>
+    <string name="please_enter_the_password_name">* Please enter the password name</string>
 </resources>

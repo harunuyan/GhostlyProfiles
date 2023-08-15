@@ -1,11 +1,16 @@
 package com.volie.ghostlyprofiles.ui.fragment.generate_password
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.volie.ghostlyprofiles.R
+import com.volie.ghostlyprofiles.data.model.Login
 import com.volie.ghostlyprofiles.databinding.FragmentPasswordGeneratorBinding
 import com.volie.ghostlyprofiles.util.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +35,12 @@ class PasswordGeneratorFragment : Fragment() {
 
 
         with(mBinding) {
+
+            ivSavedPassword.setOnClickListener {
+                val action =
+                    PasswordGeneratorFragmentDirections.actionPasswordGeneratorFragmentToSavedPasswordFragment()
+                findNavController().navigate(action)
+            }
 
             btnGenerate.setOnClickListener {
 
@@ -72,7 +83,34 @@ class PasswordGeneratorFragment : Fragment() {
             ivBack.setOnClickListener {
                 showPasswordOptions()
             }
+
+            btnSavePassword.setOnClickListener {
+                if (etMyPassword.text.isNullOrEmpty()) {
+                    val redColor = ContextCompat.getColor(requireContext(), R.color.red)
+                    etMyPassword.backgroundTintList = ColorStateList.valueOf(redColor)
+                    tvPasswordName.visibility = View.VISIBLE
+                    etMyPassword.setHintTextColor(ColorStateList.valueOf(redColor))
+                } else {
+                    val whiteColor = ContextCompat.getColor(requireContext(), R.color.white)
+                    etMyPassword.backgroundTintList = ColorStateList.valueOf(whiteColor)
+                    tvPasswordName.visibility = View.GONE
+                    etMyPassword.setHintTextColor(ColorStateList.valueOf(whiteColor))
+                    savePassword()
+                }
+            }
         }
+    }
+
+    private fun savePassword() {
+        val password = mBinding.tvPasswordGenerated.text.toString()
+        val passwordName = mBinding.etMyPassword.text.toString()
+
+        val loginData = Login(
+            name = passwordName,
+            password = password
+        )
+
+        mViewModel.savePassword(loginData)
     }
 
     private fun showPasswordOptions() {

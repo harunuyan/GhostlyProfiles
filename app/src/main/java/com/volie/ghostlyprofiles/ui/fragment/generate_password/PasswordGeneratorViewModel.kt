@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.volie.ghostlyprofiles.data.model.Login
 import com.volie.ghostlyprofiles.data.model.RandomUserResponse
 import com.volie.ghostlyprofiles.data.repo.Repository
 import com.volie.ghostlyprofiles.util.Resource
@@ -48,6 +49,12 @@ class PasswordGeneratorViewModel
             val response = repository.generatePassword(result)
 
             _password.postValue(response)
+        }
+    }
+
+    fun savePassword(password: Login) {
+        viewModelScope.launch {
+            repository.insertPassword(password)
         }
     }
 }

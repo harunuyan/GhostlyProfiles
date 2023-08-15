@@ -18,7 +18,11 @@
         android:label="PasswordGenerateFragment"
 
 
-        />
+        >
+        <action
+            android:id="@+id/action_passwordGeneratorFragment_to_savedPasswordFragment"
+            app:destination="@id/savedPasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/savedUserFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.saved_user.SavedUserFragment"
@@ -46,4 +50,8 @@
             android:name="user"
             app:argType="com.volie.ghostlyprofiles.data.model.User" />
     </fragment>
+    <fragment
+        android:id="@+id/savedPasswordFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.saved_password.SavedPasswordFragment"
+        android:label="SavedPasswordFragment" />
 </navigation>

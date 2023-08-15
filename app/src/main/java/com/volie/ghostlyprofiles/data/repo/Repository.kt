@@ -1,6 +1,7 @@
 package com.volie.ghostlyprofiles.data.repo
 
 import com.volie.ghostlyprofiles.data.local.db.UserDao
+import com.volie.ghostlyprofiles.data.model.Login
 import com.volie.ghostlyprofiles.data.model.RandomUserResponse
 import com.volie.ghostlyprofiles.data.model.User
 import com.volie.ghostlyprofiles.data.remote.service.RandomUserApi
@@ -49,9 +50,17 @@ class Repository
         return dao.getSavedUsers()
     }
 
+    suspend fun getSavedPasswordsFromDatabase(): List<Login> {
+        return dao.getSavedPasswords()
+    }
+
     suspend fun insertUser(user: User) = dao.insertUser(user)
 
+    suspend fun insertPassword(password: Login) = dao.insertPassword(password)
+
     suspend fun deleteUser(user: User) = dao.deleteUser(user)
+
+    suspend fun deletePassword(password: Login) = dao.deletePassword(password)
 
     suspend fun deleteAllUsers() = dao.deleteAllUsers()
 }

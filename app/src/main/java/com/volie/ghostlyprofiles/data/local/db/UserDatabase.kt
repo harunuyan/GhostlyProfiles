@@ -9,9 +9,10 @@ import com.volie.ghostlyprofiles.data.local.type_converter.LoginTypeConverter
 import com.volie.ghostlyprofiles.data.local.type_converter.NameTypeConverter
 import com.volie.ghostlyprofiles.data.local.type_converter.PictureTypeConverter
 import com.volie.ghostlyprofiles.data.local.type_converter.RegisteredTypeConverter
+import com.volie.ghostlyprofiles.data.model.Login
 import com.volie.ghostlyprofiles.data.model.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Login::class], version = 1, exportSchema = false)
 @TypeConverters(
     DobTypeConverter::class,
     LocationTypeConverter::class,
