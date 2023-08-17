@@ -1,5 +1,8 @@
 # Ghostly Profiles - Random User & Password Generator
 
+<p align="center">
+  <img src="https://github.com/harunuyan/GhostlyProfiles/assets/55163968/d539ede4-43f9-4b44-a6b5-480e9823d5ea" alt="3ZzL" width="400">
+</p>
 
 
 ![android-logo-minimal-5k-i7-1600x1200](https://user-images.githubusercontent.com/55163968/236510652-6be8fee4-d4ff-4286-b519-66a72f6f928a.png)</br>
