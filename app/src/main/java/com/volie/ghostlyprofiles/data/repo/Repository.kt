@@ -1,6 +1,7 @@
 package com.volie.ghostlyprofiles.data.repo
 
 import com.volie.ghostlyprofiles.data.local.db.UserDao
+import com.volie.ghostlyprofiles.data.model.Country
 import com.volie.ghostlyprofiles.data.model.Login
 import com.volie.ghostlyprofiles.data.model.RandomUserResponse
 import com.volie.ghostlyprofiles.data.model.User
@@ -63,4 +64,29 @@ class Repository
     suspend fun deletePassword(password: Login) = dao.deletePassword(password)
 
     suspend fun deleteAllUsers() = dao.deleteAllUsers()
+
+    fun getCountries(): Array<Country> {
+        return arrayOf(
+            Country(name = "Australia", countryCode = "AU"),
+            Country(name = "Brazil", countryCode = "BR"),
+            Country(name = "Canada", countryCode = "CA"),
+            Country(name = "Switzerland", countryCode = "CH"),
+            Country(name = "Germany", countryCode = "DE"),
+            Country(name = "Denmark", countryCode = "DK"),
+            Country(name = "Spain", countryCode = "ES"),
+            Country(name = "Finland", countryCode = "FI"),
+            Country(name = "France", countryCode = "FR"),
+            Country(name = "United Kingdom", countryCode = "GB"),
+            Country(name = "Ireland", countryCode = "IE"),
+            Country(name = "India", countryCode = "IN"),
+            Country(name = "Iran", countryCode = "IR"),
+            Country(name = "Mexico", countryCode = "MX"),
+            Country(name = "Netherlands", countryCode = "NL"),
+            Country(name = "Norway", countryCode = "NO"),
+            Country(name = "New Zealand", countryCode = "NZ"),
+            Country(name = "Serbia", countryCode = "RS"),
+            Country(name = "Turkey", countryCode = "TR"),
+            Country(name = "Ukraine", countryCode = "UA")
+        )
+    }
 }

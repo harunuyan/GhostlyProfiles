@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.volie.ghostlyprofiles.R
 import com.volie.ghostlyprofiles.databinding.FragmentHomeBinding
@@ -36,6 +37,9 @@ class HomeFragment : Fragment() {
         )
     }
 
+    private var filterGender = ""
+    private var filterNat = ""
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,28 +51,50 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val countryList = mViewModel.getCountries()
 
         mBinding.ivFilter.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToCreateUserFragment()
+            val action =
+                HomeFragmentDirections.actionHomeFragmentToFilterUserBottomSheet(
+                    countryList,
+                    filterGender,
+                    filterNat
+                )
             findNavController().navigate(action)
         }
 
+        mBinding.swipeRefresh.setOnRefreshListener {
+            pullToRefresh()
+            mBinding.swipeRefresh.isRefreshing = false
+        }
+
         mBinding.rvFeed.adapter = mFeedAdapter
-        observeLiveData()
         pullToRefresh()
 
-        if (!mViewModel.dataFetched) {
-            mViewModel.getRandomUsers(nat = "", gender = "")
-        } else {
-            observeLiveData()
+        observeLiveData()
+
+        initFilterValuesListener()
+
+        mViewModel.getRandomUsers(filterNat, filterGender)
+    }
+
+    private fun initFilterValuesListener() {
+        setFragmentResultListener("userNat") { _, bundle ->
+            val nationality = bundle.getString("userNat") ?: ""
+            filterNat = nationality
+            mViewModel.getRandomUsers(filterNat, filterGender)
+        }
+
+        setFragmentResultListener("userGender") { _, bundle ->
+            val gender = bundle.getString("userGender") ?: ""
+            filterGender = gender
+            mViewModel.getRandomUsers(filterNat, filterGender)
         }
     }
 
     private fun pullToRefresh() {
-        mBinding.swipeRefresh.setOnRefreshListener {
-            mBinding.swipeRefresh.isRefreshing = false
-            mViewModel.getRandomUsersWithPullToRefresh(nat = "", gender = "")
-        }
+        observeLiveData()
+        mViewModel.getRandomUsers(filterNat, filterGender)
     }
 
     private fun observeLiveData() {

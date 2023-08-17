@@ -5,20 +5,9 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/createUserFragment"
-        android:name="com.volie.ghostlyprofiles.ui.fragment.generate_user.CreateUserFragment"
-        android:label="CreateUserFragment">
-        <action
-            android:id="@+id/action_createUserFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/passwordGeneratorFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.generate_password.PasswordGeneratorFragment"
-        android:label="PasswordGenerateFragment"
-
-
-        >
+        android:label="PasswordGenerateFragment">
         <action
             android:id="@+id/action_passwordGeneratorFragment_to_savedPasswordFragment"
             app:destination="@id/savedPasswordFragment" />
@@ -36,11 +25,11 @@
         android:name="com.volie.ghostlyprofiles.ui.fragment.home.HomeFragment"
         android:label="HomeFragment">
         <action
-            android:id="@+id/action_homeFragment_to_createUserFragment"
-            app:destination="@id/createUserFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_userDetailsFragment"
             app:destination="@id/userDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_filterUserBottomSheet"
+            app:destination="@id/filterUserBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/userDetailsFragment"
@@ -54,4 +43,20 @@
         android:id="@+id/savedPasswordFragment"
         android:name="com.volie.ghostlyprofiles.ui.fragment.saved_password.SavedPasswordFragment"
         android:label="SavedPasswordFragment" />
+    <dialog
+        android:id="@+id/filterUserBottomSheetFragment"
+        android:name="com.volie.ghostlyprofiles.ui.fragment.home.FilterUserBottomSheetFragment"
+        android:label="FilterUserBottomSheetFragment">
+        <argument
+            android:name="country"
+            app:argType="com.volie.ghostlyprofiles.data.model.Country[]" />
+        <argument
+            android:name="selectedGender"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="selectedNats"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
 </navigation>

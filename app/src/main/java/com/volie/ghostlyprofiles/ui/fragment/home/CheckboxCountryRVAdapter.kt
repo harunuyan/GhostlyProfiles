@@ -1,4 +1,4 @@
-package com.volie.ghostlyprofiles.ui.fragment.generate_user
+package com.volie.ghostlyprofiles.ui.fragment.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import com.volie.ghostlyprofiles.databinding.AdapterItemCheckboxBinding
 import com.volie.ghostlyprofiles.ui.adapter.BaseRVAdapter
 
 class CheckboxCountryRVAdapter(
-    val countryList: List<Country>,
     val onItemCheck: (country: Country) -> Unit
 ) :
     BaseRVAdapter<Country>(CountryDiffUtilCallBack()) {
@@ -21,12 +20,13 @@ class CheckboxCountryRVAdapter(
 
 
         fun bind(position: Int) {
-            val country = countryList[position]
+            val country = currentList[position]
 
             binding.checkbox.text = country.name
+            binding.checkbox.isChecked = country.isSelected
 
             binding.checkbox.setOnClickListener {
-                country.isSelected = binding.checkbox.isChecked
+                //country.isSelected = binding.checkbox.isChecked
                 onItemCheck(country)
             }
         }
@@ -53,11 +53,11 @@ class CheckboxCountryRVAdapter(
     }
 
     override fun getItem(position: Int): Country {
-        return countryList.getOrNull(position) ?: Country("", "")
+        return currentList.getOrNull(position) ?: Country("", "")
     }
 
     override fun getItemCount(): Int {
-        return countryList.size
+        return currentList.size
     }
 }
 

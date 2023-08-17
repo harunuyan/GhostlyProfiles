@@ -9,6 +9,7 @@
         style="@style/Widget.Material3.CompoundButton.CheckBox"
         android:layout_width="wrap_content"
         android:buttonTint="@color/white"
+        android:textColor="@color/white"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

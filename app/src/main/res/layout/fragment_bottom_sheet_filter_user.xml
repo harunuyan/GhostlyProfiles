@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/light_blue"
+    android:background="@drawable/rounded_corner">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="50dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_brown"
+        app:layout_constraintBottom_toBottomOf="@id/tv_gender"
+        app:layout_constraintEnd_toStartOf="@id/tv_gender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_gender" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/gender"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_brown"
+        app:layout_constraintBottom_toBottomOf="@id/tv_gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_gender"
+        app:layout_constraintTop_toTopOf="@id/tv_gender" />
+
+    <LinearLayout
+        android:id="@+id/ll_genders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_gender">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_male"
+            android:tint="@color/white" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_female"
+            android:tint="@color/white" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_both_gender"
+            android:tint="@color/white" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group_genders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_genders">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/white"
+            android:buttonTintMode="multiply"
+            android:text="@string/male"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/white"
+            android:buttonTintMode="multiply"
+            android:text="@string/female"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <RadioButton
+            android:id="@+id/rb_both"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/white"
+            android:buttonTintMode="multiply"
+            android:text="@string/male_female"
+            android:textColor="@color/white" />
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_brown"
+        app:layout_constraintBottom_toBottomOf="@id/tv_nationality"
+        app:layout_constraintEnd_toStartOf="@id/tv_nationality"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_nationality" />
+
+    <TextView
+        android:id="@+id/tv_nationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/nationality"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group_genders" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_brown"
+        app:layout_constraintBottom_toBottomOf="@id/tv_nationality"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_nationality"
+        app:layout_constraintTop_toTopOf="@id/tv_nationality" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_all_nationalities"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:padding="12dp"
+        android:text="@string/all"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_nationality"
+        app:switchPadding="5dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_nationalities"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switch_all_nationalities"
+        app:spanCount="4"
+        tools:listitem="@layout/adapter_item_checkbox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
